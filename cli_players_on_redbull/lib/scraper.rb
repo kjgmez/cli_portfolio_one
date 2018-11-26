@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
-require_relative './player.rb'
+require_relative '../config/environment'
 
 class Scraper
   def get_page
@@ -11,7 +11,7 @@ class Scraper
     self.get_page.css('li.row')
   end
   def make_player
-    self.get_players.each do |players|
+    self.get_players.collect do |players|
       player = Player.new
       player.name = players.css('div.player_info div.name a').children.first.text
       player.position = players.css('div.player_info span.position').children.first.text
@@ -27,4 +27,4 @@ class Scraper
 #   end
 end
 
-# Scraper.new.print_players
+#Scraper.new.make_player
