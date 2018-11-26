@@ -1,4 +1,6 @@
-require_relative '../config/environment.rb'
+require_relative './player'
+require_relative './scraper'
+require 'pry'
 
 class Cli
   def call
@@ -22,10 +24,10 @@ class Cli
 
   def list_name
     Player.all.each_with_index{|player, i| puts "#{i+1}. #{player.name}, plays #{player.position}"}
-    binding.pry
+    #binding.pry
   end
   def list_position
   end
 end
 
-Cli.new.list_name
+Cli.new.call
