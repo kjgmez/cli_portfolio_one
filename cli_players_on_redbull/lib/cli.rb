@@ -30,4 +30,4 @@ class Cli
   end
 end
 
-Cli.new.call
+Cli.new.list_name
