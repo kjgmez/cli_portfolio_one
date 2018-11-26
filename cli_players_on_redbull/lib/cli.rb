@@ -19,8 +19,8 @@ class Cli
   end
 
   def list_name
-    Player.all.each_with_index{|player, i| puts "#{i+1}. #{player.name}, plays #{player.position}"}
+    Player.all.each_with_index{|player, i| puts "#{i+1}. #{player.name}\n    Position: #{player.position}"}
   end
 end
 
-Cli.new.call
+Cli.new.list_name
